@@ -58,6 +58,8 @@ The dashboard provides **visual insights, global distribution maps, and 30-day f
 - Streamlit Cloud
 
 ---
+## 📂 Project Structure
+
 ```bash
 covid-forecast-dashboard
 │
@@ -86,5 +88,3 @@ covid-forecast-dashboard
 
 🔗 LinkedIn:  
 https://www.linkedin.com/in/karthikeyan-selvamani
-
-## 📂 Project Structure
