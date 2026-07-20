@@ -11,9 +11,7 @@ from utils.data_loader import load_data
 from utils.preprocessing import prepare_country_data
 from models.prophet_model import train_prophet
 
-# ============================================================================
-# PAGE CONFIG
-# ============================================================================
+
 st.set_page_config(
     page_title="COVID-19 AI Forecast",
     page_icon="🦠",
@@ -21,9 +19,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# ============================================================================
-# CUSTOM CSS — SHINY, GLASS, PREMIUM
-# ============================================================================
+
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
@@ -164,9 +160,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ============================================================================
-# DATA LOADING
-# ============================================================================
+
 cases, deaths = load_data()
 
 world = pd.DataFrame({
@@ -203,9 +197,7 @@ world["Alpha3"] = alpha
 
 countries = list(cases.columns[1:])
 
-# ============================================================================
-# HEADER
-# ============================================================================
+
 st.markdown(
     """
     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
@@ -337,7 +329,6 @@ with col_top:
 
 st.markdown("---")
 
-# ── Animated Global Spread (REFACTORED) ──
 with st.container():
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.subheader("🎞️ Animated Global COVID Spread")
@@ -345,7 +336,6 @@ with st.container():
     daily_world = []
     for i in range(1, len(cases)):
         date = cases["Country/Region"][i]
-        # --- REFACTOR: replace inner for-append with extend + list comprehension ---
         daily_world.extend([
             {
                 "Date": date,
@@ -376,9 +366,7 @@ with st.container():
     st.plotly_chart(fig_anim, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# ============================================================================
-# FOOTER
-# ============================================================================
+
 st.markdown("---")
 st.markdown(
     """
